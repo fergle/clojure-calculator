@@ -1,6 +1,14 @@
 (ns clojure-calculator.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn string->numbers [string]
+  (map read-string (clojure.string/split string #",|\n")))
+
+(defn sum-a-string [string]
+  (if (empty? string)
+    0
+    (reduce + (string->numbers string))))
+
+
+
+
+
